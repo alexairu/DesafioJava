@@ -1,0 +1,55 @@
+public class Animal {
+    protected String nome;
+    protected int idade;
+
+    public Animal(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public void emitirSom() {
+        System.out.println("Som genérico de animal");
+    }
+
+    public void exibirDados() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade + " anos");
+    }
+}
+
+class Cachorro extends Animal {
+    public Cachorro(String nome, int idade) {
+        super(nome, idade);
+    }
+
+    @Override
+    public void emitirSom() {
+        System.out.println("Latindo...");
+    }
+}
+
+class Gato extends Animal {
+    public Gato(String nome, int idade) {
+        super(nome, idade);
+    }
+
+    @Override
+    public void emitirSom() {
+        System.out.println("Miando...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cachorro cachorro = new Cachorro("Rex", 5);
+        Gato gato = new Gato("Mimi", 3);
+
+        System.out.println("Dados do Cachorro:");
+        cachorro.exibirDados();
+        cachorro.emitirSom();
+
+        System.out.println("\nDados do Gato:");
+        gato.exibirDados();
+        gato.emitirSom();
+    }
+}
