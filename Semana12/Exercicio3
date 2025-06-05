@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        DispositivoEletronico smartphone = new Smartphone();
+        DispositivoEletronico televisao = new Televisao();
+
+        System.out.println("Escolha o dispositivo:");
+        System.out.println("1 - Smartphone");
+        System.out.println("2 - Televisão");
+        int escolha = scanner.nextInt();
+
+        System.out.println("Escolha a ação:");
+        System.out.println("1 - Ligar");
+        System.out.println("2 - Desligar");
+        int acao = scanner.nextInt();
+
+        if (escolha == 1) {
+            if (acao == 1) smartphone.ligar();
+            else if (acao == 2) smartphone.desligar();
+        } else if (escolha == 2) {
+            if (acao == 1) televisao.ligar();
+            else if (acao == 2) televisao.desligar();
+        } else {
+            System.out.println("Opção inválida.");
+        }
+
+        scanner.close();
+    }
+}
+
+public interface DispositivoEletronico {
+    void ligar();
+    void desligar();
+}
+public class Televisao implements DispositivoEletronico {
+    @Override
+    public void ligar() {
+        System.out.println("TV ligada.");
+    }
+
+    @Override
+    public void desligar() {
+        System.out.println("TV desligada.");
+    }
+}
+public class Smartphone implements DispositivoEletronico {
+    @Override
+    public void ligar() {
+        System.out.println("Smartphone ligado.");
+    }
+
+    @Override
+    public void desligar() {
+        System.out.println("Smartphone desligado.");
+    }
+}
