@@ -1,0 +1,51 @@
+public class Funcionario {
+    protected String nome;
+    protected double salarioBase;
+
+    public Funcionario(String nome, double salarioBase) {
+        this.nome = nome;
+        this.salarioBase = salarioBase;
+    }
+
+    public double calcularSalario() {
+        return salarioBase;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+class Gerente extends Funcionario {
+    public Gerente(String nome, double salarioBase) {
+        super(nome, salarioBase);
+    }
+
+    @Override
+    public double calcularSalario() {
+        return salarioBase * 1.2;
+    }
+}
+
+class Estagiario extends Funcionario {
+    public Estagiario(String nome, double salarioBase) {
+        super(nome, salarioBase);
+    }
+
+    @Override
+    public double calcularSalario() {
+        return salarioBase * 1.05;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Funcionario funcionario = new Funcionario("João", 3000.00);
+        Funcionario gerente = new Gerente("Maria", 5000.00);
+        Funcionario estagiario = new Estagiario("Carlos", 2000.00);
+
+        System.out.println(funcionario.getNome() + " - Salário Final: R$ " + funcionario.calcularSalario());
+        System.out.println(gerente.getNome() + " - Salário Final: R$ " + gerente.calcularSalario());
+        System.out.println(estagiario.getNome() + " - Salário Final: R$ " + estagiario.calcularSalario());
+    }
+}
