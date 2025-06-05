@@ -1,0 +1,25 @@
+
+public interface Pagamento {
+    void realizarPagamento(double valor);
+}
+public class CartaoCredito implements Pagamento {
+    @Override
+    public void realizarPagamento(double valor) {
+        System.out.println("Pagamento de R$ " + valor + " realizado com Cartão de Crédito.");
+    }
+}
+public class BoletoBancario implements Pagamento {
+    @Override
+    public void realizarPagamento(double valor) {
+        System.out.println("Pagamento de R$ " + valor + " realizado com Boleto Bancário.");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Pagamento pagamentoCartao = new CartaoCredito();
+        Pagamento pagamentoBoleto = new BoletoBancario();
+
+        pagamentoCartao.realizarPagamento(150.75);
+        pagamentoBoleto.realizarPagamento(89.90);
+    }
+}
