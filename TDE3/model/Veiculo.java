@@ -16,6 +16,11 @@ public abstract class Veiculo implements Exibivel {
 
     public abstract double calcularIPVA();
 
+    @Override
+    public void exibirDetalhes() {
+        System.out.println("VEÍCULO - Placa: " + placa + ", Marca: " + marca + ", Modelo: " + modelo);
+    }
+
     public String getPlaca() {
         return placa;
     }
